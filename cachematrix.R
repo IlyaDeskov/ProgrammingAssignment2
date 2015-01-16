@@ -4,7 +4,27 @@
 ## Write a short comment describing this function
 
 makeCacheMatrix <- function(x = matrix()) {
-
+	if(ncol(x) == nrow(x)){
+		inv<-NULL
+		
+		set<-function(y){
+			x<<-y
+			m<<-NULL
+		}
+		
+		get<-function() x
+		
+		setinv<- function(i) inv <<- i
+		
+		getinv<- function() inv
+	  
+		list(set = set, get = get,
+				setinv = setinv,
+				getinv = getinv)
+	}
+	else{
+		message("matrix is not square")
+	}
 }
 
 
@@ -12,4 +32,13 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
+	inv <- x$getinv()
+	if(!is.null(inv)) {
+		message("getting cached data")
+		return(inv)
+	}
+	data <- x$get()
+	inv <- solve(x,...)
+	x$setinv(inv)
+	inv
 }
