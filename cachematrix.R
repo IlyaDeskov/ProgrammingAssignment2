@@ -9,10 +9,11 @@
 ## "set" - sets matrix and clears its inverse
 ## "get" - returns current matrix value
 ## "getinv" - returns current value of inverse
-## "setinv" - sets value of inverse
+## "setinv" - sets value of inverse.
+## Also created object contains 
 
 makeCacheMatrix <- function(x = matrix()) {
-	if(ncol(x) == nrow(x)){
+	if(det(x) != 0){
 		inv <- NULL
 		
 		set <- function(y){
