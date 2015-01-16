@@ -2,9 +2,9 @@
 ## that stores a square matrix and caches its inverse.
 
 
-## This function checks dimensions of the input matrix and creates
+## This function checks determinant of the input matrix and creates
 ## an object that stores created matrix and its inverse,
-## if input matrix is square. Otherwise, it throws a message.
+## if determinant not equals to 0. Otherwise, it throws a message.
 ## Created object contains next four methods:
 ## "set" - sets matrix and clears its inverse
 ## "get" - returns current matrix value
